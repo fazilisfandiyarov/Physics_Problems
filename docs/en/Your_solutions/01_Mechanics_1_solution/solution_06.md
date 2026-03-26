@@ -1,117 +1,52 @@
-# Problem 6: Variable Velocity
+## 6. Variable Velocity Analysis
 
-We are given the velocity function $v(t)=t^2+2t-5$ and the initial position $x(0)=4$.
+We are given the velocity of an object as a function of time:
+$$v(t) = t^2 + 2t - 5$$
 
-We want:
-
-1. The position at $t=3$, i.e. $x(3)$.
-2. The acceleration at $t=3$, i.e. $a(3)$.
+**Initial Condition:** At $t = 0$, the position $x(0) = 4$.
 
 ---
 
-## 1) Position from velocity theory
+### 1. Finding the Position at $t = 3$
 
-Velocity is the derivative of position:
+Position $x(t)$ is the integral of velocity with respect to time:
+$$x(t) = \int v(t) \, dt = \int (t^2 + 2t - 5) \, dt$$
 
-$$
-v(t)=\frac{dx}{dt}
-$$
+Performing the integration:
+$$x(t) = \frac{1}{3}t^3 + t^2 - 5t + C$$
 
-So:
+Using the initial condition $x(0) = 4$ to find the constant $C$:
+$$4 = \frac{1}{3}(0)^3 + (0)^2 - 5(0) + C \implies C = 4$$
 
-$$
-\frac{dx}{dt}=t^2+2t-5
-$$
+The general position equation is:
+$$x(t) = \frac{1}{3}t^3 + t^2 - 5t + 4$$
 
-Integrate both sides with respect to $t$:
+Now, calculate the position at **$t = 3$**:
+$$x(3) = \frac{1}{3}(3)^3 + (3)^2 - 5(3) + 4$$
+$$x(3) = 9 + 9 - 15 + 4 = 7$$
 
-$$
-x(t)=\int (t^2+2t-5)\,dt
-$$
-
-Compute the integral term-by-term:
-
-$$
-\int t^2\,dt=\frac{t^3}{3},\qquad
-\int 2t\,dt=t^2,\qquad
-\int (-5)\,dt=-5t
-$$
-
-So the general position function is:
-
-$$
-x(t)=\frac{t^3}{3}+t^2-5t+C
-$$
-
-Use the initial condition $x(0)=4$:
-
-$$
-x(0)=\frac{0^3}{3}+0^2-5\cdot 0 + C = C = 4
-$$
-
-Therefore:
-
-$$
-x(t)=\frac{t^3}{3}+t^2-5t+4
-$$
-
-Now evaluate at $t=3$:
-
-$$
-x(3)=\frac{3^3}{3}+3^2-5\cdot 3+4
-=\frac{27}{3}+9-15+4
-=9+9-15+4
-$$
-
-Compute:
-$$
-9+9=18,\qquad 18-15=3,\qquad 3+4=7
-$$
-
-So:
-
-$$
-x(3)=7
-$$
+**Result:** The object's position at $t=3$ is **$7 \text{ units}$**.
 
 ---
 
-## 2) Acceleration from velocity
+### 2. Finding the Acceleration at $t = 3$
 
-Acceleration is the derivative of velocity:
+Acceleration $a(t)$ is the derivative of velocity with respect to time:
+$$a(t) = \frac{dv}{dt} = \frac{d}{dt}(t^2 + 2t - 5)$$
 
-$$
-a(t)=\frac{dv}{dt}
-$$
+Performing the differentiation:
+$$a(t) = 2t + 2$$
 
-Differentiate:
+Now, calculate the acceleration at **$t = 3$**:
+$$a(3) = 2(3) + 2 = 8$$
 
-$$
-v(t)=t^2+2t-5
-\quad\Rightarrow\quad
-a(t)=2t+2
-$$
-
-Evaluate at $t=3$:
-
-$$
-a(3)=2\cdot 3 + 2 = 8
-$$
+**Result:** The object's acceleration at $t=3$ is **$8 \text{ units/s}^2$**.
 
 ---
 
-## Final answers
-
-$$
-x(3)=7
-$$
-
-$$
-a(3)=8
-$$
-
----
-
-## Plot the velocity and acceleration
-
-![Velocity and Acceleration Plots](velocity_acceleration_plots.png)
+### Summary of State at $t = 3$
+| Quantity | Value |
+| :--- | :--- |
+| **Velocity** $v(3)$ | $10 \text{ units/s}$ |
+| **Position** $x(3)$ | $7 \text{ units}$ |
+| **Acceleration** $a(3)$ | $8 \text{ units/s}^2$ |
